@@ -1,0 +1,11 @@
+FROM node:10-alpine
+
+WORKDIR /app
+
+ADD ./frontend-example-docker-master ./
+
+RUN npm install && npm run build
+
+ENV API_URL=http://localhost:8000
+
+CMD ["npm", "start"]
